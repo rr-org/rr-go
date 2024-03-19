@@ -17,7 +17,7 @@ func main() {
 	routers.SetupRoutes(app)
 
 	// Start Server
-	err := app.Listen(":8000")
+	err := app.Listen(":9000")
 	if err != nil {
 		log.Fatalf("Error starting server: %v", err)
 	}
