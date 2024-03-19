@@ -10,12 +10,12 @@ func SetupRoutes(f *fiber.App) {
 	app := fiber.New()
 	f.Mount("/api", app)
 
-	app.Get("/users", controllers.GetUsers)
+	app.Get("/user", controllers.GetUsers)
 	app.Get("/user/:id", controllers.GetUser)
 
-	app.Get("/avatars", controllers.GetAvatars)
+	app.Get("/avatar", controllers.GetAvatars)
 	app.Get("/avatar/:id", controllers.GetAvatar)
 
-	app.Get("/quizzes", controllers.GetQuizzes)
+	app.Get("/quiz", controllers.GetQuizzes)
 	app.Get("/quiz/:id", controllers.GetQuiz)
 }
