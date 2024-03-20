@@ -38,27 +38,27 @@ func GetUsers(c *fiber.Ctx) error {
 			return err
 		}
 
-		if user.Avatar == nil {
-			user.Avatar = []entities.Avatar{}
-		}
+		// if user.Avatar == nil {
+		// 	user.Avatar = []entities.Avatar{}
+		// }
 
-		avatarCollection := client.Database("Resonance-Riddle").Collection("avatar")
-		avatarCursor, err := avatarCollection.Find(ctx, bson.M{"_id": bson.M{"$in": user.Avatar}})
-		if err != nil {
-			return err
-		}
-		defer avatarCursor.Close(ctx)
+		// avatarCollection := client.Database("Resonance-Riddle").Collection("avatar")
+		// avatarCursor, err := avatarCollection.Find(ctx, bson.M{"_id": bson.M{"$in": user.Avatar}})
+		// if err != nil {
+		// 	return err
+		// }
+		// defer avatarCursor.Close(ctx)
 
-		var avatars []entities.Avatar
-		for avatarCursor.Next(ctx) {
-			var avatar entities.Avatar
-			if err := avatarCursor.Decode(&avatar); err != nil {
-				return err
-			}
-			avatars = append(avatars, avatar)
-		}
+		// var avatars []entities.Avatar
+		// for avatarCursor.Next(ctx) {
+		// 	var avatar entities.Avatar
+		// 	if err := avatarCursor.Decode(&avatar); err != nil {
+		// 		return err
+		// 	}
+		// 	avatars = append(avatars, avatar)
+		// }
 
-		user.Avatar = avatars
+		// user.Avatar = avatars
 		users = append(users, user)
 	}
 	if err := cursor.Err(); err != nil {

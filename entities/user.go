@@ -9,8 +9,8 @@ import (
 type User struct {
 	ID        primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
 	Email     string             `bson:"email" json:"email"`
-	Username  *string            `bson:"username" json:"username,omitempty"`
-	Avatar    []Avatar           `bson:"avatar" json:"avatar"`
+	Username  *string            `bson:"username" json:"username"`
+	Avatar    *string            `bson:"avatar" json:"avatar"`
 	Diamond   int                `bson:"diamond" json:"diamond"`
 	Score     int                `bson:"score" json:"score"`
 	UpdatedAt time.Time          `bson:"updated_at" json:"updated_at"`
